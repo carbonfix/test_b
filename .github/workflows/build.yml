@@ -15,12 +15,22 @@ jobs:
 
       - name: Show host info
         run: |
-          lscpu
-          free -h
-          df -hT ${PWD}
+          echo -e "\033[32mSystem info:\033[0m"
           neofetch --off --color_blocks off --stdout
+
+          echo -e "\033[32mCPU info:\033[0m"
+          lscpu
+
+          echo -e "\033[32mMemory info:\033[0m"
+          free -h
+
+          echo -e "\033[32mDisk space info:\033[0m"
+          df -hT ${PWD}
+          duf
 
       - name: Show remaining space
         run: |
+          echo -e "\033[32mDisk space info:\033[0m"
+          df -hT ${PWD}
           duf
 
