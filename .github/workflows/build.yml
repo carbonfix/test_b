@@ -18,7 +18,7 @@ jobs:
           lscpu
           free -h
           df -hT ${PWD}
-          neofetch --off --color_blocks off
+          neofetch --off --color_blocks off --stdout
 
       - name: Show remaining space
         run: |
