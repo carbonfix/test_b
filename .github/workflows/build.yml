@@ -1,0 +1,26 @@
+name: build
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Install required packages
+        run: |
+          sudo apt update
+          sudo apt install -y neofetch duf
+
+      - name: Show host info
+        run: |
+          lscpu
+          free -h
+          df -hT ${PWD}
+          neofetch
+
+      - name: Show remaining space
+        run: |
+          duf
+
